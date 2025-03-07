@@ -1,7 +1,9 @@
 package com.example.springaiagenticpatterns;
 
 import com.example.springaiagenticpatterns.patterns.ChainWorkflow;
+import com.example.springaiagenticpatterns.patterns.ParelalizationWorkflow;
 import com.example.springaiagenticpatterns.prompts.ChainWorkflowPrompts;
+import com.example.springaiagenticpatterns.prompts.ParelalizationWorkflowPrompts;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +15,7 @@ import java.util.Scanner;
 @RequiredArgsConstructor
 public class Application implements CommandLineRunner {
     private final ChainWorkflow chainWorkflow;
+    private final ParelalizationWorkflow parelalizationWorkflow;
 
 
     public static void main(String[] args) {
@@ -20,7 +23,7 @@ public class Application implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         System.out.println("""
                 1. Chain Workflow
                 2. Parallel Workflow
@@ -42,8 +45,10 @@ public class Application implements CommandLineRunner {
                     System.out.println("Chain Workflow: for sequential processing, output of one step is input to next step.");
                     chainWorkflow.chain(ChainWorkflowPrompts.USER_INPUT);
                 }
-                case 2 ->
-                        System.out.println("Parallel Workflow: for parallel processing, output of multiple steps are aggregated to produce final output.");
+                case 2 -> {
+                    System.out.println("Parallel Workflow: for parallel processing, output of multiple steps are aggregated to produce final output.");
+                    parelalizationWorkflow.parallel(ParelalizationWorkflowPrompts.PROMPT, ParelalizationWorkflowPrompts.USER_INPUTS, 4);
+                }
                 case 3 ->
                         System.out.println("Routing Workflow: for specialized processing, different types of inputs are routed to specialized processing steps.");
                 case 4 ->
