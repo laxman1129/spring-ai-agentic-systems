@@ -3,7 +3,6 @@ package com.example.springaiagenticpatterns;
 import com.example.springaiagenticpatterns.patterns.ChainWorkflow;
 import com.example.springaiagenticpatterns.prompts.ChainWorkflowPrompts;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,12 +11,12 @@ import java.util.Scanner;
 
 @SpringBootApplication
 @RequiredArgsConstructor
-public class SpringAiAgenticPatternsApplication implements CommandLineRunner {
+public class Application implements CommandLineRunner {
     private final ChainWorkflow chainWorkflow;
 
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringAiAgenticPatternsApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
     @Override
