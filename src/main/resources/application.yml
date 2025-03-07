@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: spring-ai-agentic-patterns
+  ai:
+    ollama:
+      init:
+        pull-model-strategy: when_missing
+      chat:
+        #model: wizardlm2:7b
+        #model: sqlcoder
+        model: granite3-dense:2b
+      embedding:
+        model: mxbai-embed-large
