@@ -1,10 +1,7 @@
 package com.example.springaiagenticpatterns;
 
 import com.example.springaiagenticpatterns.args.RoutingWorkflowArgs;
-import com.example.springaiagenticpatterns.patterns.ChainWorkflow;
-import com.example.springaiagenticpatterns.patterns.OrchestratorWorkers;
-import com.example.springaiagenticpatterns.patterns.ParelalizationWorkflow;
-import com.example.springaiagenticpatterns.patterns.RoutingWorkflow;
+import com.example.springaiagenticpatterns.patterns.*;
 import com.example.springaiagenticpatterns.args.ChainWorkflowArgs;
 import com.example.springaiagenticpatterns.args.ParelalizationWorkflowArgs;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +18,7 @@ public class Application implements CommandLineRunner {
     private final ParelalizationWorkflow parelalizationWorkflow;
     private final RoutingWorkflow routingWorkflow;
     private final OrchestratorWorkers orchestratorWorkers;
+    private final EvaluatorOptimizer evaluatorOptimizer;
 
 
     public static void main(String[] args) {
@@ -63,8 +61,19 @@ public class Application implements CommandLineRunner {
 //                    orchestratorWorkers.process("Write a product description for a new eco-friendly water bottle");
                     orchestratorWorkers.process("Ai driven driving school, where the system will teach the students how to drive a car");
                 }
-                case 5 ->
-                        System.out.println("Evaluator-Optimizer Pattern: dual LLM process where one LLM model generates a solution and another LLM model evaluates the solution.");
+                case 5 -> {
+                    System.out.println("Evaluator-Optimizer Pattern: dual LLM process where one LLM model generates a solution and another LLM model evaluates the solution.");
+                    evaluatorOptimizer.loop("""
+                                                <user input>
+                                                Implement a Stack in Java with:
+                                                1. push(x)
+                                                2. pop()
+                                                3. getMin()
+                                                All operations should be O(1).
+                                                All inner fields should be private and when used should be prefixed with 'this.'.
+                                                </user input>
+                            """);
+                }
                 default -> System.out.println("Invalid input");
             }
         }
