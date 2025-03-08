@@ -1,6 +1,6 @@
 package com.example.springaiagenticpatterns.patterns;
 
-import com.example.springaiagenticpatterns.records.RoutingResponse;
+import com.example.springaiagenticpatterns.records.routes.RoutingResponse;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;

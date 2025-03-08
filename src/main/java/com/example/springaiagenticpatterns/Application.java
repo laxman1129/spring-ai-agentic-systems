@@ -2,6 +2,7 @@ package com.example.springaiagenticpatterns;
 
 import com.example.springaiagenticpatterns.args.RoutingWorkflowArgs;
 import com.example.springaiagenticpatterns.patterns.ChainWorkflow;
+import com.example.springaiagenticpatterns.patterns.OrchestratorWorkers;
 import com.example.springaiagenticpatterns.patterns.ParelalizationWorkflow;
 import com.example.springaiagenticpatterns.patterns.RoutingWorkflow;
 import com.example.springaiagenticpatterns.args.ChainWorkflowArgs;
@@ -19,6 +20,7 @@ public class Application implements CommandLineRunner {
     private final ChainWorkflow chainWorkflow;
     private final ParelalizationWorkflow parelalizationWorkflow;
     private final RoutingWorkflow routingWorkflow;
+    private final OrchestratorWorkers orchestratorWorkers;
 
 
     public static void main(String[] args) {
@@ -56,8 +58,11 @@ public class Application implements CommandLineRunner {
                     System.out.println("Routing Workflow: for specialized processing, different types of inputs are routed to specialized processing steps.");
                     routingWorkflow.route(RoutingWorkflowArgs.supportRoutes, RoutingWorkflowArgs.tickets);
                 }
-                case 4 ->
-                        System.out.println("Orchestrator-Workers Pattern: complex agent-like behavior while maintaining control over the process, complex tasks where subtasks can't be predicted.");
+                case 4 -> {
+                    System.out.println("Orchestrator-Workers Pattern: complex agent-like behavior while maintaining control over the process, complex tasks where subtasks can't be predicted.");
+//                    orchestratorWorkers.process("Write a product description for a new eco-friendly water bottle");
+                    orchestratorWorkers.process("Ai driven driving school, where the system will teach the students how to drive a car");
+                }
                 case 5 ->
                         System.out.println("Evaluator-Optimizer Pattern: dual LLM process where one LLM model generates a solution and another LLM model evaluates the solution.");
                 default -> System.out.println("Invalid input");
