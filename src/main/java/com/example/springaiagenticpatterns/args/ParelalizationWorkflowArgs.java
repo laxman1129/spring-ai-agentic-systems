@@ -1,8 +1,8 @@
-package com.example.springaiagenticpatterns.prompts;
+package com.example.springaiagenticpatterns.args;
 
 import java.util.List;
 
-public final class ParelalizationWorkflowPrompts {
+public final class ParelalizationWorkflowArgs {
     public static final String PROMPT = """
             Analyze how market changes will impact this stakeholder group.
             Provide specific impacts and recommended actions.

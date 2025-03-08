@@ -1,6 +1,6 @@
 package com.example.springaiagenticpatterns.patterns;
 
-import com.example.springaiagenticpatterns.prompts.ChainWorkflowPrompts;
+import com.example.springaiagenticpatterns.args.ChainWorkflowArgs;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +20,7 @@ public class ChainWorkflow {
     }
 
     public String chain(String userInput) {
-        var systemPrompts = ChainWorkflowPrompts.DEFAULT_SYSTEM_PROMPTS;
+        var systemPrompts = ChainWorkflowArgs.DEFAULT_SYSTEM_PROMPTS;
         int step = 0;
         String response = userInput;
         System.out.printf("\nSTEP %s:\n %s%n", step++, response);

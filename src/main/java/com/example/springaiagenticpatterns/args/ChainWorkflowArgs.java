@@ -1,6 +1,6 @@
-package com.example.springaiagenticpatterns.prompts;
+package com.example.springaiagenticpatterns.args;
 
-public final class ChainWorkflowPrompts {
+public final class ChainWorkflowArgs {
 
     /**
      * Array of system prompts that define the transformation steps in the chain.

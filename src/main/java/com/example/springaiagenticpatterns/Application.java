@@ -1,9 +1,11 @@
 package com.example.springaiagenticpatterns;
 
+import com.example.springaiagenticpatterns.args.RoutingWorkflowArgs;
 import com.example.springaiagenticpatterns.patterns.ChainWorkflow;
 import com.example.springaiagenticpatterns.patterns.ParelalizationWorkflow;
-import com.example.springaiagenticpatterns.prompts.ChainWorkflowPrompts;
-import com.example.springaiagenticpatterns.prompts.ParelalizationWorkflowPrompts;
+import com.example.springaiagenticpatterns.patterns.RoutingWorkflow;
+import com.example.springaiagenticpatterns.args.ChainWorkflowArgs;
+import com.example.springaiagenticpatterns.args.ParelalizationWorkflowArgs;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,6 +18,7 @@ import java.util.Scanner;
 public class Application implements CommandLineRunner {
     private final ChainWorkflow chainWorkflow;
     private final ParelalizationWorkflow parelalizationWorkflow;
+    private final RoutingWorkflow routingWorkflow;
 
 
     public static void main(String[] args) {
@@ -43,14 +46,16 @@ public class Application implements CommandLineRunner {
                 }
                 case 1 -> {
                     System.out.println("Chain Workflow: for sequential processing, output of one step is input to next step.");
-                    chainWorkflow.chain(ChainWorkflowPrompts.USER_INPUT);
+                    chainWorkflow.chain(ChainWorkflowArgs.USER_INPUT);
                 }
                 case 2 -> {
                     System.out.println("Parallel Workflow: for parallel processing, output of multiple steps are aggregated to produce final output.");
-                    parelalizationWorkflow.parallel(ParelalizationWorkflowPrompts.PROMPT, ParelalizationWorkflowPrompts.USER_INPUTS, 4);
+                    parelalizationWorkflow.parallel(ParelalizationWorkflowArgs.PROMPT, ParelalizationWorkflowArgs.USER_INPUTS, 4);
                 }
-                case 3 ->
-                        System.out.println("Routing Workflow: for specialized processing, different types of inputs are routed to specialized processing steps.");
+                case 3 -> {
+                    System.out.println("Routing Workflow: for specialized processing, different types of inputs are routed to specialized processing steps.");
+                    routingWorkflow.route(RoutingWorkflowArgs.supportRoutes, RoutingWorkflowArgs.tickets);
+                }
                 case 4 ->
                         System.out.println("Orchestrator-Workers Pattern: complex agent-like behavior while maintaining control over the process, complex tasks where subtasks can't be predicted.");
                 case 5 ->
