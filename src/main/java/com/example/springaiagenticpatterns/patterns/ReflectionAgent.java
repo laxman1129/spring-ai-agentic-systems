@@ -7,6 +7,9 @@ import org.springframework.ai.chat.memory.InMemoryChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.stereotype.Component;
 
+/**
+ * Reflection Agent: for generating and critiquing content iteratively.
+ */
 @Component
 public class ReflectionAgent {
     private final ChatClient generateChatClient;
