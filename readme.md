@@ -18,10 +18,12 @@ There are 5 agentic patterns
    tasks where subtasks cant be predicted
 5. `Evaluator-Optimizer Pattern` : dual llm process where one llm model generates a solution and another llm model
    evaluates the solution
-
+6. `Reflection Pattern` : agents that can introspect their own state and behavior
 ---
 
 ## References
 
 - https://spring.io/blog/2025/01/21/spring-ai-agentic-patterns
 - https://github.com/spring-projects/spring-ai-examples/tree/main/agentic-patterns
+- https://github.com/spring-projects/spring-ai-examples/tree/main/agents/reflection
+- https://github.com/neural-maze/agentic_patterns

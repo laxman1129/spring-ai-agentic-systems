@@ -19,6 +19,7 @@ public class Application implements CommandLineRunner {
     private final RoutingWorkflow routingWorkflow;
     private final OrchestratorWorkers orchestratorWorkers;
     private final EvaluatorOptimizer evaluatorOptimizer;
+    private final ReflectionAgent reflectionAgent;
 
 
     public static void main(String[] args) {
@@ -33,6 +34,7 @@ public class Application implements CommandLineRunner {
                 3. Routing Workflow
                 4. Orchestrator-Workers Pattern
                 5. Evaluator-Optimizer Pattern
+                6. Reflection Agent
                 0. Exit
                 """);
         Scanner input = new Scanner(System.in);
@@ -73,6 +75,10 @@ public class Application implements CommandLineRunner {
                                                 All inner fields should be private and when used should be prefixed with 'this.'.
                                                 </user input>
                             """);
+                }
+                case 6 -> {
+                    System.out.println("Reflection Agent: agent that can introspect and modify its own behavior.");
+                    reflectionAgent.reflect("Generate a Java implementation of the Merge Sort algorithm", 3);
                 }
                 default -> System.out.println("Invalid input");
             }
